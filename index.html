@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<style>
+	.user_detail{
+		background-color:#eee;
+		padding:10px;
+		display:inline-block;
+	}
+</style>
+<div class="user_detail">
+	<p id=""><img id="img" class="img_field" src=""></p>
+    <p id="name" class="name"></p>
+    <p  id="designation" class="design"></p>
+     <p id="salary" class="salary"></p>
+</div>
+<div  id="user_detail"><div   class="user_detail"></div></div>
+<div style="clear:both"></div>
+
+
+<input id="imgsrc" type="file">
+<input id="nam" class="" placeholder="name" type="text" required pattern="[a-zA-Z]{3,15}">
+<input id="pro" class="" placeholder="professional" type="text">
+<input id="sal" class="" placeholder="salary"  type="password" required pattern="^[a-zA-Z]\w{3,14}$">
+<button id="update">Update</button>
+
+<body>
+</body>
+<script>
+var a = [{nam:"Thulasinathan",desig:"Web designer",sal:"25k", imgsrc:"img/img1.png"}];
+
+var i=0;
+document.getElementById("name").innerHTML=a[i].nam;
+document.getElementById("img").src=a[i].imgsrc;
+document.getElementById("designation").innerHTML=a[i].desig;
+document.getElementById("salary").innerHTML=a[i].sal;
+document.getElementById("update").onclick=function(){	
+	if (i<a.length){
+		var m=document.getElementById("nam").value;
+		var n=document.getElementById("pro").value;
+		var o=document.getElementById("sal").value;
+		var q=document.getElementById("imgsrc").value;
+		var obj={nam:m, desig:n, sal:o, img:q};
+		a.push(obj);
+		console.log(a);
+		i++;
+		
+		var nametag= document.createElement("p");
+		var img= document.createElement("img");
+		var desig= document.createElement("p");
+		var sal= document.createElement("p");
+	
+		
+		nametag.innerHTML=a[i].nam;
+		img.src=a[i].img;
+		desig.innerHTML=a[i].desig;
+		sal.innerHTML=a[i].sal;
+		
+		document.getElementById("user_detail").appendChild(nametag);
+		document.getElementById("user_detail").appendChild(img);
+		document.getElementById("user_detail").appendChild(desig);
+		document.getElementById("user_detail").appendChild(sal);
+	}
+
+
+};
+
+</script>
+</html>
